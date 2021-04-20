@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D59CE10262D92DB00EE2F18 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D59CE0F262D92DB00EE2F18 /* AlamofireObjectMapper.framework */; };
+		4D59CE11262D92DB00EE2F18 /* AlamofireObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D59CE0F262D92DB00EE2F18 /* AlamofireObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D74E57F262D57DA008DC66D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74E57E262D57DA008DC66D /* AppDelegate.swift */; };
 		4D74E581262D57DA008DC66D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74E580262D57DA008DC66D /* SceneDelegate.swift */; };
 		4D74E583262D57DA008DC66D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74E582262D57DA008DC66D /* ViewController.swift */; };
@@ -15,6 +17,11 @@
 		4D74E58B262D57DB008DC66D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D74E589262D57DB008DC66D /* LaunchScreen.storyboard */; };
 		4D74E596262D57DB008DC66D /* SegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74E595262D57DB008DC66D /* SegmentedControlTests.swift */; };
 		4D74E5A1262D57DB008DC66D /* SegmentedControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74E5A0262D57DB008DC66D /* SegmentedControlUITests.swift */; };
+		4D74E5B3262D5CF2008DC66D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D74E5B2262D5CF2008DC66D /* Alamofire.framework */; };
+		4D74E5B4262D5CF2008DC66D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D74E5B2262D5CF2008DC66D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D74E5B9262D5CF5008DC66D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D74E5B8262D5CF5008DC66D /* ObjectMapper.framework */; };
+		4D74E5BA262D5CF5008DC66D /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D74E5B8262D5CF5008DC66D /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D74E5C0262D6825008DC66D /* MappingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74E5BF262D6825008DC66D /* MappingData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +41,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4D74E5B5262D5CF2008DC66D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D74E5BA262D5CF5008DC66D /* ObjectMapper.framework in Embed Frameworks */,
+				4D59CE11262D92DB00EE2F18 /* AlamofireObjectMapper.framework in Embed Frameworks */,
+				4D74E5B4262D5CF2008DC66D /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4D59CE0F262D92DB00EE2F18 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = SegmentedControl/Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		4D74E57B262D57DA008DC66D /* SegmentedControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegmentedControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D74E57E262D57DA008DC66D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D74E580262D57DA008DC66D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +73,9 @@
 		4D74E59C262D57DB008DC66D /* SegmentedControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SegmentedControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D74E5A0262D57DB008DC66D /* SegmentedControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlUITests.swift; sourceTree = "<group>"; };
 		4D74E5A2262D57DB008DC66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D74E5B2262D5CF2008DC66D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = SegmentedControl/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		4D74E5B8262D5CF5008DC66D /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = SegmentedControl/Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		4D74E5BF262D6825008DC66D /* MappingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D74E5B9262D5CF5008DC66D /* ObjectMapper.framework in Frameworks */,
+				4D59CE10262D92DB00EE2F18 /* AlamofireObjectMapper.framework in Frameworks */,
+				4D74E5B3262D5CF2008DC66D /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +113,7 @@
 				4D74E594262D57DB008DC66D /* SegmentedControlTests */,
 				4D74E59F262D57DB008DC66D /* SegmentedControlUITests */,
 				4D74E57C262D57DA008DC66D /* Products */,
+				4D74E5B1262D5CF2008DC66D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +132,7 @@
 			children = (
 				4D74E57E262D57DA008DC66D /* AppDelegate.swift */,
 				4D74E580262D57DA008DC66D /* SceneDelegate.swift */,
+				4D74E5BF262D6825008DC66D /* MappingData.swift */,
 				4D74E582262D57DA008DC66D /* ViewController.swift */,
 				4D74E584262D57DA008DC66D /* Main.storyboard */,
 				4D74E587262D57DB008DC66D /* Assets.xcassets */,
@@ -128,6 +160,16 @@
 			path = SegmentedControlUITests;
 			sourceTree = "<group>";
 		};
+		4D74E5B1262D5CF2008DC66D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D59CE0F262D92DB00EE2F18 /* AlamofireObjectMapper.framework */,
+				4D74E5B8262D5CF5008DC66D /* ObjectMapper.framework */,
+				4D74E5B2262D5CF2008DC66D /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +180,7 @@
 				4D74E577262D57DA008DC66D /* Sources */,
 				4D74E578262D57DA008DC66D /* Frameworks */,
 				4D74E579262D57DA008DC66D /* Resources */,
+				4D74E5B5262D5CF2008DC66D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +303,7 @@
 			files = (
 				4D74E583262D57DA008DC66D /* ViewController.swift in Sources */,
 				4D74E57F262D57DA008DC66D /* AppDelegate.swift in Sources */,
+				4D74E5C0262D6825008DC66D /* MappingData.swift in Sources */,
 				4D74E581262D57DA008DC66D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +482,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UN3FPQY5P8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SegmentedControl/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SegmentedControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,6 +495,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -457,6 +506,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UN3FPQY5P8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SegmentedControl/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SegmentedControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -466,6 +519,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
