@@ -12,11 +12,12 @@ import AlamofireObjectMapper
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var showKm: [Vehicles]?
-    
-    var currentTableView: Int!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var countries = [Country]()
+    
+    var currentTableView: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,53 +26,52 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         currentTableView = 0
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.loadDataVehicles()
         
-        
+        let country = CountryData(url: "https://restcountries.eu/rest/v2/")
+        country.getCountryName(endPoint: "all")
+        country.complitionHandler { (countries, status, message) in
+          
+            if status {
+                guard let countries = countries else {return}
+    
+                self.countries = countries
+              //  self.tableView.reloadData()
+            }
+        }
     }
     
     @IBAction func switchTablw(_ sender: UISegmentedControl) {
         currentTableView = sender.selectedSegmentIndex
         
-        if currentTableView == 0 {
-            // loadDataKm()
+        if currentTableView == 1 {
+       self.tableView.reloadData()
         } else {
-            //print("")
+            print("")
         }
-        self.tableView.reloadData()
-        loadDataVehicles()
+                
     }
     
-    func loadDataVehicles(){
-        let url = "https://zehus-api-common-integration.azure-api.net/ZehusStatsApp/v1/Vehicle/GlobalInfo"
-        
-        Alamofire.request(url).responseObject { (response: DataResponse<Vehicles>) in
-            let kms = response.result.value
-            print(kms?.TotalKm as Any)
-            print(kms?.TotalVehicles as Any)
-            print(kms?.ManufacturerName as Any)
-            
-            self.tableView.reloadData()
-        }
-        
-    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return showKm?.count ?? 0
+        return countries.count
+        
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")
-        cell?.textLabel?.text = showKm?[indexPath.row].ManufacturerName
-        cell?.textLabel?.textColor = UIColor.orange
-        cell?.textLabel?.backgroundColor = UIColor.darkGray
-        cell?.contentView.backgroundColor = UIColor.darkGray
+        var cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")
         
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle,
+                                   reuseIdentifier: "labelCell")
+        }
+        
+        let country = countries[indexPath.row]
+        
+        cell?.textLabel?.text = (country.name ?? "") + "" + (country.countryCode ?? "" )
+        cell?.detailTextLabel?.text = country.capital ?? ""
         return cell!
     }
     
 }
-
-
