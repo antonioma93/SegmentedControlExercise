@@ -22,10 +22,14 @@ class CountryData {
     }
     
     func getCountryName(endPoint: String){
-        Alamofire.request(url+endPoint, method: .get, encoding: URLEncoding.default).response {
+        Alamofire.request(url + endPoint, method: .get, encoding: URLEncoding.default).response {
             (responseData) in
             //  print("Successfully connect")
-            guard let data = responseData.data else {return}
+            guard let data = responseData.data else {
+                self.callBack?(nil, false, "")
+                
+                return
+            }
             
             do {
                 let countries = try JSONDecoder().decode([Country].self, from: data)

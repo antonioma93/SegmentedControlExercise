@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     @IBOutlet weak var tableView: UITableView!
-    
     var countries = [Country]()
     
     var currentTableView: Int!
@@ -29,13 +28,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let country = CountryData(url: "https://restcountries.eu/rest/v2/")
         country.getCountryName(endPoint: "all")
-        country.complitionHandler { (countries, status, message) in
+        country.complitionHandler { [weak self] (countries, status, message) in
           
             if status {
-                guard let countries = countries else {return}
+                guard let self = self else {return}
+                guard let _countries = countries else {return}
     
-                self.countries = countries
-              //  self.tableView.reloadData()
+                self.countries = _countries
+                self.tableView.reloadData()
             }
         }
     }
@@ -43,9 +43,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func switchTablw(_ sender: UISegmentedControl) {
         currentTableView = sender.selectedSegmentIndex
         
+       // self.tableView.reloadData()
         if currentTableView == 1 {
-       self.tableView.reloadData()
-        } else {
             print("")
         }
                 
@@ -60,16 +59,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "countrycell")
         
         if cell == nil {
             cell = UITableViewCell(style: .subtitle,
-                                   reuseIdentifier: "labelCell")
+                                   reuseIdentifier: "countrycell")
         }
         
         let country = countries[indexPath.row]
         
-        cell?.textLabel?.text = (country.name ?? "") + "" + (country.countryCode ?? "" )
+        cell?.textLabel?.text = (country.name ?? "") + "" + (country.countryCode ?? "")
         cell?.detailTextLabel?.text = country.capital ?? ""
         return cell!
     }
