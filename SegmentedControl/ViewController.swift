@@ -12,7 +12,6 @@ import AlamofireObjectMapper
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBOutlet weak var tableView: UITableView!
@@ -49,12 +48,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      //  return countries.count
-        if segmentControl.selectedSegmentIndex == 0 {
-            return countries.count
-        } else {
-            return star.count
-        }
+        return countries.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,22 +61,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
         let country = countries[indexPath.row]
-        cell?.textLabel?.text = (country.name ?? "") + "" + (country.countryCode ?? "")
+        cell?.textLabel?.text = (country.name ?? "")
         cell?.detailTextLabel?.text = country.capital ?? ""
 
         return cell!
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell?
-//
-//        if segmentControl.selectedSegmentIndex == 0 {
-//            print(countries)
-//        }
-//        else if segmentControl.selectedSegmentIndex == 1 {
-//            print(star)
-//        }
-//
-//        return cell!
-//    }
 }

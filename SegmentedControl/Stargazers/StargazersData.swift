@@ -25,7 +25,6 @@ class StargazersData {
                 for stargazers in self.stargazers {
                     print(stargazers.login ?? "")
                 }
-
             case .failure(let error):
                 print(error)
             }
