@@ -23,6 +23,8 @@
 		4D74E5B4262D5CF2008DC66D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D74E5B2262D5CF2008DC66D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D74E5B9262D5CF5008DC66D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D74E5B8262D5CF5008DC66D /* ObjectMapper.framework */; };
 		4D74E5BA262D5CF5008DC66D /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D74E5B8262D5CF5008DC66D /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4DE43056263155470052381F /* StargazersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE43055263155470052381F /* StargazersData.swift */; };
+		4DE4305E26315C090052381F /* Stargazers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4305D26315C090052381F /* Stargazers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		4D74E5A2262D57DB008DC66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D74E5B2262D5CF2008DC66D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = SegmentedControl/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		4D74E5B8262D5CF5008DC66D /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = SegmentedControl/Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		4DE43055263155470052381F /* StargazersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StargazersData.swift; sourceTree = "<group>"; };
+		4DE4305D26315C090052381F /* Stargazers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stargazers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,11 +136,11 @@
 		4D74E57D262D57DA008DC66D /* SegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
+				4DE4305A263155980052381F /* Stargazers */,
+				4DE43059263155850052381F /* Countires */,
 				4D74E57E262D57DA008DC66D /* AppDelegate.swift */,
-				4D74E580262D57DA008DC66D /* SceneDelegate.swift */,
 				4D74E582262D57DA008DC66D /* ViewController.swift */,
-				4D59CE1C2630629400EE2F18 /* Country.swift */,
-				4D59CE162630378F00EE2F18 /* CountryData.swift */,
+				4D74E580262D57DA008DC66D /* SceneDelegate.swift */,
 				4D74E584262D57DA008DC66D /* Main.storyboard */,
 				4D74E587262D57DB008DC66D /* Assets.xcassets */,
 				4D74E589262D57DB008DC66D /* LaunchScreen.storyboard */,
@@ -171,6 +175,24 @@
 				4D74E5B2262D5CF2008DC66D /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DE43059263155850052381F /* Countires */ = {
+			isa = PBXGroup;
+			children = (
+				4D59CE162630378F00EE2F18 /* CountryData.swift */,
+				4D59CE1C2630629400EE2F18 /* Country.swift */,
+			);
+			path = Countires;
+			sourceTree = "<group>";
+		};
+		4DE4305A263155980052381F /* Stargazers */ = {
+			isa = PBXGroup;
+			children = (
+				4DE43055263155470052381F /* StargazersData.swift */,
+				4DE4305D26315C090052381F /* Stargazers.swift */,
+			);
+			path = Stargazers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +329,9 @@
 				4D74E583262D57DA008DC66D /* ViewController.swift in Sources */,
 				4D74E57F262D57DA008DC66D /* AppDelegate.swift in Sources */,
 				4D59CE172630378F00EE2F18 /* CountryData.swift in Sources */,
+				4DE43056263155470052381F /* StargazersData.swift in Sources */,
 				4D59CE1D2630629400EE2F18 /* Country.swift in Sources */,
+				4DE4305E26315C090052381F /* Stargazers.swift in Sources */,
 				4D74E581262D57DA008DC66D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

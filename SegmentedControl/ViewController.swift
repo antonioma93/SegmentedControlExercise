@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tableView: UITableView!
     var countries = [Country]()
+    var values = [Stargazer]()
     
     var currentTableView: Int!
     
@@ -28,14 +29,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let country = CountryData(url: "https://restcountries.eu/rest/v2/")
         country.getCountryName(endPoint: "all")
-        country.complitionHandler { [weak self] (countries, status, message) in
+        country.complitionHandler {(countries, status, message) in
           
             if status {
-                guard let self = self else {return}
                 guard let _countries = countries else {return}
-    
                 self.countries = _countries
-                self.tableView.reloadData()
+               // self.tableView.reloadData()
             }
         }
     }
@@ -45,16 +44,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
        // self.tableView.reloadData()
         if currentTableView == 1 {
-            print("")
+            print(values)
+        } else {
+            self.tableView.reloadData()
         }
-                
+        
     }
-    
-    
-    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
-        
         
     }
     
@@ -67,9 +65,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         let country = countries[indexPath.row]
-        
         cell?.textLabel?.text = (country.name ?? "") + "" + (country.countryCode ?? "")
         cell?.detailTextLabel?.text = country.capital ?? ""
+
         return cell!
     }
     

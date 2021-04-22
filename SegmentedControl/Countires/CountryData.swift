@@ -40,7 +40,6 @@ class CountryData {
                 //   print("Error when decode\(error)")
                 self.callBack?(nil, false, error.localizedDescription)
             }
-            
         }
     }
     
