@@ -23,7 +23,7 @@
                                     <segment title="STARRED"/>
                                 </segments>
                                 <connections>
-                                    <action selector="switchTablw:" destination="BYZ-38-t0r" eventType="valueChanged" id="huj-2B-Jf5"/>
+                                    <action selector="switchTable:" destination="BYZ-38-t0r" eventType="valueChanged" id="huj-2B-Jf5"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d7u-Gz-TjJ">
@@ -55,6 +55,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Select One" id="K40-2x-NR9"/>
                     <connections>
+                        <outlet property="segmentControl" destination="0kR-yv-Cuf" id="g9D-N8-uOm"/>
                         <outlet property="tableView" destination="d7u-Gz-TjJ" id="wbs-Vl-Lcf"/>
                     </connections>
                 </viewController>
