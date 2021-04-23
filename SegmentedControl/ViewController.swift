@@ -15,19 +15,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBOutlet weak var tableView: UITableView!
+    
     var countries = [Country]()
     var star = [Stargazer]()
     
     var currentTableView: Int!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.backgroundColor = UIColor.systemBackground
-       currentTableView = 0
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+                
         let country = CountryData(url: "https://restcountries.eu/rest/v2/")
         country.getCountryName(endPoint: "all")
         country.complitionHandler {(countries, status, message) in
@@ -37,34 +36,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.countries = _countries
                 self.tableView.reloadData()
             }
-            let stargaz = StargazersData()
-            stargaz.getData()
         }
+        let stargaz = StargazersData()
+        stargaz.getStargazeName()
     }
     
     @IBAction func switchTable(_ sender: UISegmentedControl) {
-       currentTableView = sender.selectedSegmentIndex
-        
+        currentTableView = sender.selectedSegmentIndex
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
-        
+        var segment = 0
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            segment = countries.count
+            break
+        case 1:
+            segment = star.count
+            break
+        default:
+            break
+            
+        }
+        return segment
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "countrycell")
-
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle,
-                                   reuseIdentifier: "countrycell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath)
+        
+        switch(segmentControl.selectedSegmentIndex) {
+        case 0:
+            cell.textLabel?.text = countries[indexPath.row].name
+            cell.textLabel?.textColor = UIColor.orange
+            cell.textLabel?.textAlignment = .center
+            break
+        case 1:
+            cell.textLabel?.text = star[indexPath.row].login
+            cell.textLabel?.textColor = UIColor.orange
+            cell.textLabel?.textAlignment = .center
+            break
+        default:
+            break
         }
-
-        let country = countries[indexPath.row]
-        cell?.textLabel?.text = (country.name ?? "")
-        cell?.detailTextLabel?.text = country.capital ?? ""
-
-        return cell!
+        return cell
     }
-    
 }

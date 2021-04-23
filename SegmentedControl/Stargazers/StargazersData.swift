@@ -12,11 +12,10 @@ import ObjectMapper
 
 
 class StargazersData {
-    
-    var url = "https://api.github.com/repos/octocat/hello-world/stargazers"
     var stargazers: [Stargazer] = []
+    var url = "https://api.github.com/repos/octocat/hello-world/stargazers"
     
-    func getData() {
+    func getStargazeName() {
         Alamofire.request(url).validate().responseArray { (response: DataResponse<[Stargazer]>) in
             print("Success: \(response.result.isSuccess)")
             switch response.result {
